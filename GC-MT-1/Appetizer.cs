@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GC_MT_1
 {
 
-    class Cash:PaymentMethod
+    class Appetizer:Product
     {
 
 

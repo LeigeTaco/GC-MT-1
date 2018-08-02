@@ -42,9 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="Cash.cs" />
-    <Compile Include="Check.cs" />
+    <Compile Include="Appetizer.cs" />
+    <Compile Include="Dessert.cs" />
+    <Compile Include="Drink.cs" />
+    <Compile Include="Entree.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
