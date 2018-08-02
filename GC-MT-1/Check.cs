@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Text.RegularExpressions;
 
 namespace GC_MT_1
 {
 
-    class Program
+    class Check:PaymentMethod
     {
 
-        static void Main(string[] args)
-        {
 
-
-
-        }
 
     }
 
