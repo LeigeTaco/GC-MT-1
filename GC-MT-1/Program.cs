@@ -14,7 +14,7 @@ namespace GC_MT_1
 
         static void Main(string[] args)
         {
-
+            PaymentMethod.Cash(20.99);
 
 
         }
