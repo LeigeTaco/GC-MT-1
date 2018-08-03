@@ -12,7 +12,7 @@ namespace GC_MT_1
     class Program
     {
 
-        static Product[] ArrayBuilder(StreamReader menu)
+        static string[][] ArrayBuilder1(StreamReader menu)
         {
 
             
@@ -22,23 +22,34 @@ namespace GC_MT_1
 
             string fileData = "";
             string nextLine = menu.ReadLine();
-            while (nextLine != null)
+            do
             {
 
                 fileData += nextLine + "\n";
                 tempList.Add(nextLine);
                 nextLine = menu.ReadLine();
 
-            }
+            } while (nextLine != null);
 
-            Console.WriteLine(fileData);
+
+            List<string[]> temp = new List<string[]>();
 
             foreach (string item in tempList)
             {
                 
                 string[] info = item.Split(',');
+                temp.Add(info);
 
             }
+
+            return temp.ToArray();
+
+        }
+
+        static Product[] ArrayBuilder2(string[][] toProduct)
+        {
+
+            return null;
 
         }
 
@@ -49,6 +60,19 @@ namespace GC_MT_1
 
             StreamReader menu = new StreamReader("../../Menu.txt");
             string RESTAURANTNAME = menu.ReadLine();
+
+            foreach (string[] word in ArrayBuilder1(menu))
+            {
+
+                foreach (string word2 in word)
+                {
+
+                    Console.Write(word2 + ' ');
+
+                }
+                Console.WriteLine();
+
+            }
 
         }
 
