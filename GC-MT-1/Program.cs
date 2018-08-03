@@ -15,9 +15,6 @@ namespace GC_MT_1
         static string[][] ArrayBuilder1(StreamReader menu)
         {
 
-            
-
-
             List<string> tempList = new List<string>();
 
             string fileData = "";
@@ -56,7 +53,7 @@ namespace GC_MT_1
         static void Main(string[] args)
         {
 
-            PaymentMethod.Cash(20.99);
+            //PaymentMethod.Cash(20.99);
 
             StreamReader menu = new StreamReader("../../Menu.txt");
             string RESTAURANTNAME = menu.ReadLine();
