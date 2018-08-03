@@ -1,6 +1,5 @@
-﻿Liege Taco
-hello,world,this,is
-a,test,of,strings
-and,our,ability,to
-work,with,them,in
-text,file,formats,yeet
+﻿Restaurant Name (Can be as long as needed and contain whatever except for new line characters)
+foodName,foodCategory,foodDescription,foodPrice (or something like this)
+these,are,comma,seperated
+so all this is one string,but,these,aren't
+do,not,put,commas,in prices
