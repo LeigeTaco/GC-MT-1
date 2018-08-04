@@ -109,6 +109,12 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
+                    else if (Regex.IsMatch(cardNum, @"^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$"))
+                    {
+                        Console.WriteLine("You have entered a MasterCard");
+                        cvvLength = 3;
+                        whileBreak = true;
+                    }
 
 
                 }
