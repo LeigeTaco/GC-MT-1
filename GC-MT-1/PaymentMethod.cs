@@ -120,7 +120,7 @@ namespace GC_MT_1
             }          
             while (!whileBreak);
 
-            
+            whileBreak = false;
             Console.WriteLine("Please enter your CVV:");
             do
             {
@@ -136,7 +136,7 @@ namespace GC_MT_1
                     
                     else if (Regex.IsMatch(cvv, @"^(\d{4})|(\d{3})$"))
                     {
-                        return;  
+                        whileBreak = true;  
                     }
 
 
@@ -149,7 +149,29 @@ namespace GC_MT_1
 
 
 }
-            while (true);
+            while (!whileBreak);
+
+            whileBreak = false;
+            Console.WriteLine("Please enter your expiration date(mm/yy):");
+            string expDate = "";
+            do
+            {
+                try
+                {
+                    expDate = Console.ReadLine();
+                    if (Regex.IsMatch(expDate, @"^[01][0-9]/[0-9]{2}$"))
+                    {
+                        whileBreak = true;
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+
+            } while (!whileBreak);
+
 
 
 
