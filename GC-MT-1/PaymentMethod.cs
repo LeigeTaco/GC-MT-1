@@ -80,7 +80,7 @@ namespace GC_MT_1
                     else if (Regex.IsMatch(cardNum, @"^3[47][0-9]{13}$"))
                     {
 
-                        Console.WriteLine("You have entered an AMerican Express");
+                        Console.WriteLine("You have entered an American Express");
                         cvvLength = 4;
                         whileBreak = true;
 
@@ -117,25 +117,33 @@ namespace GC_MT_1
 
                     Console.WriteLine(e.Message);
                 }
-            }
+            }          
             while (!whileBreak);
 
+            
+            Console.WriteLine("Please enter your CVV:");
             do
             {
 
 
                 try
                 {
-                    if (!Regex.IsMatch(cvv, @"^(\d{4})|(\d{3})$"))
+                    string cvvNum = Console.ReadLine();
+                    if (cvvNum.Length != cvvLength)
                     {
-                         
+                        Console.WriteLine("Please re-enter your CVV:");
+                    }
+                    
+                    else if (Regex.IsMatch(cvv, @"^(\d{4})|(\d{3})$"))
+                    {
+                        return;  
                     }
 
 
                 }
-                catch
+                catch(Exception e)
                 {
-
+                    Console.WriteLine(e.Message);
 
                 }
 
@@ -149,7 +157,34 @@ namespace GC_MT_1
         }
 
         public static void Check()
-        { }
+        {
+            //when asking for the check number i think it is only 4 numbers.
+            Console.WriteLine("Please enter your check number:");
+            do
+            {
+                try
+                {
+                string checkNum = Console.ReadLine();
+                    if(Regex.IsMatch(checkNum, @"^\d{4}$"))
+                    {
+                        Console.WriteLine("Payment Processing:");
+                        return;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    
+                }
+
+            } while (true);
+
+
+
+
+
+        }
 
 
 
