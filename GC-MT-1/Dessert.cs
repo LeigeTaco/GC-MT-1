@@ -17,11 +17,16 @@ namespace GC_MT_1
             get {return dessert;}
         }
         
-        Dessert():base()
+        Dessert()
         {
             Dessert = "churro";
         }
        
+        Dessert(string ds):base(fn,fc,fd,fp)
+        {
+            Dessert = ds;
+        }
+        
         public override void //Method from Main()
         {
             Console.WriteLine("{Dessert}");
