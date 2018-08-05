@@ -1,5 +1,15 @@
-﻿Restaurant Name (Can be as long as needed and contain whatever except for new line characters)
-foodName,foodCategory,foodDescription,foodPrice (or something like this)
-these,are,comma,seperated
-so all this is one string,but,these,aren't
-do,not,put,commas,in prices
+﻿Leiges Tacos
+Nukem Nachos, Appetizer, Nachos with meltdown sauce,6.75
+Quickfire Queso, Appetizer, Creamy queso with chyanne and plablano peppers, 4.99
+Gringo Guac, Appetizer, Mild blan unappealing green stuff, 6.25
+El Diablo Taco, Entree, Taco with hot devil sauce, 2.99
+Blaster Burrito, Entree, Filled with chili beans and meat, 7.00
+Quiet Death Quesadilla, Entree, Sneaky heat sure to put one foot in the grave, 5.83
+Mexican Cola, Drink, Nothing speacial here just good old fashion cola, 1.75
+Horchata, Drink, Creamy cinnomin goodness, 2.80
+Mariachi Margarite, Drink, Kicking with tequilla, 9.15
+Deep Fired IceCream, Dessert, Pretty self explanitory, 6.75
+Fiesta Flan, Dessert, Flan with a kick, 3.99
+Churros, Dessert, Yeah the ciny sugar crunchy stix, 4.19
+
+
