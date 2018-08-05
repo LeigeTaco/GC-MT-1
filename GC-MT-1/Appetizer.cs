@@ -17,9 +17,14 @@ namespace GC_MT_1
             get {return appetizerName;}
         }
         
-        AppetizerName():base()
+        AppetizerName()
         {
             AppetizerName = "salsa";
+        }
+        
+        AppetizerName(string app):base(fn,fc,fd,fp)
+        {
+            Appetizer = app;
         }
        
         public override void //Method from Main()
