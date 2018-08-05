@@ -47,7 +47,7 @@ namespace GC_MT_1
                     foodcategory = value;
                 }
             }
-            get { return foodcatagory; }
+            get { return foodcategory; }
         }
 
 
