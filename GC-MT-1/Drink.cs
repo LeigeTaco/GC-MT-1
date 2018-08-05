@@ -19,9 +19,14 @@ namespace GC_MT_1
         
         Drink():base()
         {
-            Drink = "churro";
+            Drink = "pop";
         }
-       
+        
+        Drink(string dr):base(fn,fc,fd,fp)
+        {
+            Drink = dr;
+        }
+ 
         public override void //Method from Main()
         {
             Console.WriteLine("{Drink}");
