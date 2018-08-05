@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace GC_MT_1
 {
@@ -44,10 +45,10 @@ namespace GC_MT_1
                 }
                 else
                 {
-                    foodcategory = value;
+                    foodCategory = value;
                 }
             }
-            get { return foodcategory; }
+            get { return foodCategory; }
         }
 
 
@@ -72,7 +73,7 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch(value, @"^$[0-9]([.,][0-9]{1,2})?$")) //only show numbers with two decimal places
+                if (!Regex.IsMatch($"{value}", @"^$[0-9]([.,][0-9]{1,2})?$")) //only show numbers with two decimal places
                 {
                     throw new Exception("Not valid.");
                 }
@@ -90,7 +91,7 @@ namespace GC_MT_1
         public Product()
         {
             FoodName = "names";
-            FoodCategory = "appetizer, entra, drink";
+            FoodCategory = "appetizer, entree, drink";
             FoodDescription = "this is food";
             FoodPrice = 2.99;
         }
@@ -103,12 +104,36 @@ namespace GC_MT_1
             FoodDescription = fd;
             FoodPrice = fp;
         }
-        //methods   
-        public virtual void //Method from Main()
+
+        public Product(string[] arr)
         {
-            ConsoleWriteLine("{Product}");
+
+            FoodCategory = arr[1];
+            FoodDescription = arr[2];
+            FoodName = arr[0];
+
+            try
+            {
+
+                FoodPrice = double.Parse(arr[3]);
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Price invalid, defaulting to $2.99");
+                FoodPrice = 2.99;
+
+            }
+           
+
         }
-        
+        //methods   
+        //public virtual void //Method from Main()          //No method name given here. Looks like you're trying to override ToString().
+        //{                                                 //
+        //    ConsoleWriteLine("{Product}");                //cw($"{variableName}")
+        //}                                                 //
+                                                            //Imma let you fix this, but ask questions about anything you aren't sure on.
     }
    
 }

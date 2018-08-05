@@ -9,28 +9,28 @@ namespace GC_MT_1
 
     class Dessert:Product
     {
-        private string dessert;
+        private string dessertType;
         
-        public Dessert
+        public string DessertType
         {
-            set {dessert = value;}
-            get {return dessert;}
+            set {dessertType = value;}
+            get {return dessertType;}
         }
         
         Dessert()
         {
-            Dessert = "churro";
+            DessertType = "churro";
         }
        
-        Dessert(string ds):base(fn,fc,fd,fp)
-        {
-            Dessert = ds;
-        }
+        //Dessert(string ds):base(fn,fc,fd,fp)
+        //{
+        //    DessertType = ds;
+        //}
         
-        public override void //Method from Main()
-        {
-            Console.WriteLine("{Dessert}");
-        }
+        //public override void //Method from Main()
+        //{
+        //    Console.WriteLine("{Dessert}");
+        //}
         
     }
 

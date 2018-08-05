@@ -9,28 +9,28 @@ namespace GC_MT_1
 
     class Drink:Product
     {
-        private string drink;
+        private string drinkType;
         
-        public Drink
+        public string DrinkType         //missing data type
         {
-            set {drink = value;}
-            get {return drink;}
+            set {drinkType = value;}
+            get {return drinkType;}
         }
         
         Drink()
         {
-            Drink = "pop";
+            DrinkType = "pop";
         }
         
-        Drink(string dr):base(fn,fc,fd,fp)
-        {
-            Drink = dr;
-        }
+        //Drink(string dr):base(fn,fc,fd,fp)      //Same as Entree constructor
+        //{
+        //    DrinkType = dr;
+        //}
  
-        public override void //Method from Main()
-        {
-            Console.WriteLine("{Drink}");
-        }
+        //public override void //Method from Main()
+        //{
+        //    Console.WriteLine("{Drink}");
+        //}
   
     }
 

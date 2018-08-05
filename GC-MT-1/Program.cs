@@ -46,7 +46,46 @@ namespace GC_MT_1
         static Product[] ArrayBuilder2(string[][] toProduct)
         {
 
-            return null;
+            List<Product> output = new List<Product>();
+
+            foreach (string[] prod in toProduct)
+            {
+
+                //if (prod[1].ToLower() == "appetizer")
+                //{
+
+                //    output.Add(new Appetizer(prod));
+
+                //}
+                //else if (prod[1].ToLower() == "dessert")
+                //{
+
+                //    output.Add(new Dessert(prod));
+
+                //}
+                //else if (prod[1].ToLower() == "drink")
+                //{
+
+                //    output.Add(new Drink(prod));
+
+                //}
+                //else if (prod[1].ToLower() == "entree")
+                //{
+
+                //    output.Add(new Entree(prod));
+
+                //}
+                //else
+                //{
+
+                    Console.WriteLine("Product Category Unclear, defaulting to Product");
+                    output.Add(new Product(prod));
+
+                //}
+
+            }
+
+            return output.ToArray();
 
         }
 

@@ -11,26 +11,26 @@ namespace GC_MT_1
     {
         private string appetizerName;
         
-        public AppetizerName
+        public string AppetizerName
         {
             set {appetizerName = value;}
             get {return appetizerName;}
         }
         
-        AppetizerName()
+        Appetizer():base()
         {
             AppetizerName = "salsa";
         }
         
-        AppetizerName(string app):base(fn,fc,fd,fp)
+        Appetizer(string fn, string fc, string fd, double fp, string app):base(fn,fc,fd,fp)
         {
-            Appetizer = app;
+            AppetizerName = app;
         }
        
-        public override void //Method from Main()
-        {
-            Console.WriteLine("{AppetizerName}");
-        }
+        //public override void //Method from Main()
+        //{
+        //    Console.WriteLine("{AppetizerName}");
+        //}
         
     }
 
