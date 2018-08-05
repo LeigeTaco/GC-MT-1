@@ -72,7 +72,7 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch(value, @"^[0-9]([.,][0-9]{1,2})?$")) //only show numbers with two decimal places
+                if (!Regex.IsMatch(value, @"^$[0-9]([.,][0-9]{1,2})?$")) //only show numbers with two decimal places
                 {
                     throw new Exception("Not valid.");
                 }
@@ -84,8 +84,25 @@ namespace GC_MT_1
             get { return foodPrice; }
 
         }
-
         //constructors
+        //default
+
+        public Product()
+        {
+            FoodName = "names";
+            FoodCategory = "appetizer, entra, drink";
+            FoodDescription = "this is food";
+            FoodPrice = 2.99;
+        }
+        //overload
+
+        public virtual void Product(string fn, string fc, string fd, double fp)
+        {
+            FoodName = fn;
+            FoodCategory = fc;
+            FoodDescription = fd;
+            FoodPrice = fp;
+        }
         //methods   
 
     }
