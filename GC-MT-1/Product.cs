@@ -96,7 +96,7 @@ namespace GC_MT_1
         }
         //overload
 
-        public virtual void Product(string fn, string fc, string fd, double fp)
+        public Product(string fn, string fc, string fd, double fp)
         {
             FoodName = fn;
             FoodCategory = fc;
@@ -104,7 +104,11 @@ namespace GC_MT_1
             FoodPrice = fp;
         }
         //methods   
-
+        public virtual void //Method from Main()
+        {
+            ConsoleWriteLine("{Product}");
+        }
+        
     }
    
 }
