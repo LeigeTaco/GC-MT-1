@@ -272,8 +272,6 @@ namespace GC_MT_1
             PaymentMethod.Cash(price);
 
             //ask for a payment type and do appropriate actions to refrence the correct class
-<<<<<<< HEAD
-
             //Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
             //string payChoice = Console.ReadLine();
             //whileBreak = false;
@@ -305,18 +303,7 @@ namespace GC_MT_1
             //{
             //    PaymentMethod.Check();
             //}
-=======
-            double total = 56.75;
-            GetPayment(total);
-            
->>>>>>> Adjustments to payments
-
-
-
-
             //PaymentMethod.Cash(price);
-
-
            //some sort of possible method here to do the receipt
            //console.write
         }
