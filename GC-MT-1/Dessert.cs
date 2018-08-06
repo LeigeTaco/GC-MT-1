@@ -17,7 +17,7 @@ namespace GC_MT_1
             get {return dessertType;}
         }
         
-        Dessert()
+        Dessert():base()
         {
             DessertType = "churro";
         }
