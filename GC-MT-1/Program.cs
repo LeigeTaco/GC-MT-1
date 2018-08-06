@@ -149,7 +149,7 @@ namespace GC_MT_1
 
 
             //ask for a payment type and do appropriate actions to refrence the correct class
-            Console.WriteLine("Please enter your payment type(Cash, CHeack, or Credit:");
+            Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
             string payChoice = Console.ReadLine();
             whileBreak = false;
             do
@@ -165,6 +165,21 @@ namespace GC_MT_1
                 }
 
             } while (!whileBreak);
+
+            double total = 100;// this is just for test purposes and can be commented out when we store a total.
+
+            if (payChoice.ToLower() == "cash")
+            {
+                PaymentMethod.Cash(total);
+            }
+            else if (payChoice.ToLower() == "credit")
+            {
+                PaymentMethod.Credit();
+            }
+            else if (payChoice.ToLower() == "Check")
+            {
+                PaymentMethod.Check();
+            }
 
 
 
