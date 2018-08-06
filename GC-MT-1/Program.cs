@@ -112,7 +112,7 @@ namespace GC_MT_1
                 //else
                 //{
 
-                    Console.WriteLine($"{prod[0]} Category Unclear, defaulting to Product");
+                    //Console.WriteLine($"{prod[0]} Category Unclear, defaulting to Product");
                     output.Add(new Product(prod));
 
                 //}
@@ -134,6 +134,15 @@ namespace GC_MT_1
             }
 
             bool whileBreak = false;
+
+            byte menuNum = 1;
+            foreach (Product f in menu)
+            {
+
+                Console.WriteLine($"{menuNum} {f.ToString()}");
+                menuNum++;
+
+            }
 
             do
             {
@@ -190,55 +199,23 @@ namespace GC_MT_1
         static void Main(string[] args)
         {
 
-            //PaymentMethod.Cash(20.99);
-
             StreamReader menu = new StreamReader("../../Menu.txt");
             string RESTAURANTNAME = menu.ReadLine();
             Product[] MENU = ArrayBuilder2(ArrayBuilder1(menu));
 
             double price = 0;
-            bool whileBreak = false;
 
-            do
-            {
-                Console.WriteLine("Input a menu item by number:");
-               
-                
-
-                
-                int userChoice = int.Parse(Console.ReadLine());
-                if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
-                {
-
-                }
-                else
-                {
-                    Console.WriteLine("Please Input a valid number:");
-                    userChoice = int.Parse(Console.ReadLine());
-                }
-
-
-                //something here to catalog the users choice and pull its price from the product list
-                //price = price + userChoice[index];
-                Console.WriteLine("Would you like to order another item(Y/N)");
-                string yesOrNo = Console.ReadLine();
-                if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
-                {
-
-                }
-                else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
-                {
-                    whileBreak = true;
-                }
-
-            } while (!whileBreak);
 
             //process the order and get the totals here, subtotal, tax, total
 
 
 
+
             //ask for a payment type and do appropriate actions to refrence the correct class
             GetPayment();
+
+            //ask for a payment type and do appropriate actions to refrence the correct class
+
             //Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
             //string payChoice = Console.ReadLine();
             //whileBreak = false;
@@ -271,6 +248,10 @@ namespace GC_MT_1
             //    PaymentMethod.Check();
             //}
 
+
+
+
+            PaymentMethod.Cash(price);
 
 
            //some sort of possible method here to do the receipt
