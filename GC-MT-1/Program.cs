@@ -249,6 +249,27 @@ namespace GC_MT_1
 
         }
 
+        static void PrintReceipt(int[] receipt, Product[] menu)
+        {
+
+            double subTotal = 0;
+            for (int i = 0; i < receipt.Length; i++)
+            {
+
+                if (receipt[i] > 0)
+                {
+
+                    Console.WriteLine($"{receipt[i]} {menu[i].FoodName} {receipt[i] * menu[i].FoodPrice:c}");
+                    subTotal += receipt[i] * menu[i].FoodPrice;
+
+                }
+
+            }
+            Console.WriteLine($"Subtotal: {subTotal:c}");
+            Console.WriteLine($"Total: {subTotal * 1.06:c}");
+
+        }
+
         static void Main(string[] args)
         {
 
@@ -263,49 +284,9 @@ namespace GC_MT_1
                 price += receipt[i] * MENU[i].FoodPrice;
             }
 
-            //process the order and get the totals here, subtotal, tax, total
-
-
-
-
-            //ask for a payment type and do appropriate actions to refrence the correct class
-            PaymentMethod.Cash(price);
-
-            //ask for a payment type and do appropriate actions to refrence the correct class
-            //Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
-            //string payChoice = Console.ReadLine();
-            //whileBreak = false;
-            //do
-            //{
-            //    if(Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
-            //    {
-            //        whileBreak = true;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Please enter one of the valid payment types:");
-            //        payChoice = Console.ReadLine();
-            //    }
-
-            //} while (!whileBreak);
-
-            //double total = 100;// this is just for test purposes and can be commented out when we store a total.
-
-            //if (payChoice.ToLower() == "cash")
-            //{
-            //    PaymentMethod.Cash(total);
-            //}
-            //else if (payChoice.ToLower() == "credit")
-            //{
-            //    PaymentMethod.Credit();
-            //}
-            //else if (payChoice.ToLower() == "Check")
-            //{
-            //    PaymentMethod.Check();
-            //}
-            //PaymentMethod.Cash(price);
-           //some sort of possible method here to do the receipt
-           //console.write
+            PrintReceipt(receipt, MENU);
+            PaymentMethod.Cash(price * 1.06);
+            
         }
 
     }
