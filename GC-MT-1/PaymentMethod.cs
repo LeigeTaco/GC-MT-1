@@ -139,12 +139,33 @@ namespace GC_MT_1
                     {
                         Console.WriteLine("Please re-enter your CVV:");
                     }
-                    
-                    else if (Regex.IsMatch(cvv, @"^(\d{4})|(\d{3})$"))
+
+                    if (cvvLength == 3)
                     {
-                        whileBreak = true;  
+                        if (Regex.IsMatch(cvvNum, @"^(\d{3})$"))
+                        {
+                            whileBreak = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please re-enter a 3 digit CVV:");
+                        }
+
                     }
 
+                    else if (cvvLength == 4)
+                    {
+                        if(Regex.IsMatch(cvvNum, @"^(\d{4})$"))
+                        {
+                            whileBreak = true;
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Please re-enter a 4 digit CVV:");
+                        }
+                    }
+                    
 
                 }
                 catch(Exception e)

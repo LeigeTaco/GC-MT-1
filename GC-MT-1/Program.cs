@@ -11,11 +11,13 @@ namespace GC_MT_1
 
     class Program
     {
-        static void GetPayment()
+        static void GetPayment(double total)
         {
+            //asks for payment typs 
             Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
             string payChoice = Console.ReadLine();
            bool  whileBreak = false;
+            //do while loop that validates payment type
             do
             {
                 if (Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
@@ -30,8 +32,7 @@ namespace GC_MT_1
 
             } while (!whileBreak);
 
-            double total = 100;// this is just for test purposes and can be commented out when we store a total.
-
+            //once payment type is validated, calls the class
             if (payChoice.ToLower() == "cash")
             {
                 PaymentMethod.Cash(total);
@@ -271,6 +272,7 @@ namespace GC_MT_1
             PaymentMethod.Cash(price);
 
             //ask for a payment type and do appropriate actions to refrence the correct class
+<<<<<<< HEAD
 
             //Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
             //string payChoice = Console.ReadLine();
@@ -303,6 +305,11 @@ namespace GC_MT_1
             //{
             //    PaymentMethod.Check();
             //}
+=======
+            double total = 56.75;
+            GetPayment(total);
+            
+>>>>>>> Adjustments to payments
 
 
 
