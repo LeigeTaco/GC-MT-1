@@ -9,7 +9,7 @@ namespace GC_MT_1
 {
 
     class PaymentMethod
-    {
+    {   //taking and Validating cash payments
         public static void Cash(double price)
         {
             double payment = 0;
@@ -54,7 +54,7 @@ namespace GC_MT_1
 
 
         }
-
+        //taking and validating credit payments
         public static void Credit()
         {
             Console.WriteLine("Input your credit card number:");
@@ -183,7 +183,7 @@ namespace GC_MT_1
 
 
         }
-
+        //taking and validating check payments
         public static void Check()
         {
             //when asking for the check number i think it is only 4 numbers.
