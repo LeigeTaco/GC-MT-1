@@ -114,6 +114,7 @@ namespace GC_MT_1
 
             double price = 0;
             bool whileBreak = false;
+
             do
             {
                 Console.WriteLine("Input a menu item by number:");
@@ -144,6 +145,31 @@ namespace GC_MT_1
 
             } while (!whileBreak);
 
+            //process the order and get the totals here, subtotal, tax, total
+
+
+            //ask for a payment type and do appropriate actions to refrence the correct class
+            Console.WriteLine("Please enter your payment type(Cash, CHeack, or Credit:");
+            string payChoice = Console.ReadLine();
+            whileBreak = false;
+            do
+            {
+                if(Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
+                {
+                    whileBreak = true;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter one of the valid payment types:");
+                    payChoice = Console.ReadLine();
+                }
+
+            } while (!whileBreak);
+
+
+
+           //some sort of possible method here to do the receipt
+           //console.write
         }
 
     }
