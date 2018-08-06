@@ -11,10 +11,10 @@ namespace GC_MT_1
     {
        private string entreeType;
        
-       public string EntreeType         //Basically, this doesn't like being called the class name, it's confusing it. I'm changing it to entreeType.
+       public string EntreeType        
        {
             set{entreeType = value;}
-            get{return entreeType;}     //return statements don't equal anything. whatever comes after them 
+            get{return entreeType;}     
        }
        
        Entree():base()                
