@@ -17,7 +17,7 @@ namespace GC_MT_1
             get {return drinkType;}
         }
         
-        Drink()
+        Drink():base()
         {
             DrinkType = "pop";
         }
