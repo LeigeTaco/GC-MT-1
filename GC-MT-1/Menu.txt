@@ -1,15 +1,15 @@
 ﻿Lieges Tacos
 Nukem Nachos, Appetizer, Nachos with meltdown sauce,6.75
 Quickfire Queso, Appetizer, Creamy queso with chyanne and plablano peppers, 4.99
-Gringo Guac, Appetizer, Mild blan unappealing green stuff, 6.25
+Gringo Guac, Appetizer, Mild bland unappealing green stuff, 6.25
 El Diablo Taco, Entree, Taco with hot devil sauce, 2.99
 Blaster Burrito, Entree, Filled with chili beans and meat, 7.00
 Quiet Death Quesadilla, Entree, Sneaky heat sure to put one foot in the grave, 5.83
-Mexican Cola, Drink, Nothing speacial here just good old fashion cola, 1.75
-Horchata, Drink, Creamy cinnomin goodness, 2.80
+Mexican Cola, Drink, Nothing special here just good old fashion cola, 1.75
+Horchata, Drink, Creamy cinnamin goodness, 2.80
 Mariachi Margarite, Drink, Kicking with tequilla, 9.15
-Deep Fired IceCream, Dessert, Pretty self explanitory, 6.75
+Deep Fried IceCream, Dessert, Pretty self explanitory, 6.75
 Fiesta Flan, Dessert, Flan with a kick, 3.99
-Churros, Dessert, Yeah the ciny sugar crunchy stix, 4.19
+Churros, Dessert, Yeah the cinny sugar crunchy stix, 4.19
 
 
