@@ -148,9 +148,9 @@ namespace GC_MT_1
 
             }
 
-            do                              //TODO: Move validation to a seperate method.
-            {                               //Make this method run until the client is done ordering.
-                string temp = "";           //Also, I think we needed a remove feature? That'd be pretty easy tho.
+            do                              
+            {                               
+                string temp = "";           
                 Console.WriteLine("What would you like to order?:");
                 int userChoice = 0;
                 int userCount = 0;
