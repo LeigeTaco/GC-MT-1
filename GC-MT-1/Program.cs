@@ -149,13 +149,13 @@ namespace GC_MT_1
             }
 
             do                              //TODO: Move validation to a seperate method.
-            {
-                string temp = "";
+            {                               //Make this method run until the client is done ordering.
+                string temp = "";           //Also, I think we needed a remove feature? That'd be pretty easy tho.
                 Console.WriteLine("What would you like to order?:");
                 int userChoice = 0;
                 int userCount = 0;
+                string reprompt = "";
                 temp = Console.ReadLine();
-                bool innerBreak = false;
                 try
                 {
                     if (Regex.IsMatch(temp, @"[a-zA-Z\s]"))
@@ -181,7 +181,7 @@ namespace GC_MT_1
                         else
                         {
 
-                            Console.WriteLine("Entry was not recognized.");
+                            reprompt = "Entry was not recognized.";
                             
 
                         }
@@ -202,7 +202,7 @@ namespace GC_MT_1
                             }
                             else
                             {
-                                Console.WriteLine("Entry was not recognized.");
+                                reprompt = "Entry was not recognized.";
                                 
                             }
 
@@ -219,7 +219,7 @@ namespace GC_MT_1
                     else
                     {
 
-                        Console.WriteLine("Entry was invalid, try again.");
+                        reprompt = "Entry was invalid, try again.";
                         
 
                     }
@@ -240,7 +240,11 @@ namespace GC_MT_1
                 catch(Exception)
                 {
 
-                    Console.WriteLine("Lemme know if you didn't hit CTRL+Z to get here.");
+                    if (reprompt == "")
+                    {
+                        reprompt = "Lemme know if you didn't hit CTRL+Z to get here.";
+                    }
+                    Console.WriteLine(reprompt);
 
                 }
 
@@ -286,8 +290,7 @@ namespace GC_MT_1
             }
 
             PrintReceipt(receipt, MENU);
-            // PaymentMethod.Cash(price * 1.06);
-            GetPayment(price * 1.06);
+            PaymentMethod.Cash(price * 1.06);
             
         }
 
