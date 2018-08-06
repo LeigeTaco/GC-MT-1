@@ -123,7 +123,69 @@ namespace GC_MT_1
 
         }
 
+        public static int[] OrderList(Product[] menu)
+        {
 
+            int[] receipt = new int[menu.Length];
+
+            for (int i = 0; i < menu.Length; i++)
+            {
+                receipt[i] = 0;
+            }
+
+            bool whileBreak = false;
+
+            do
+            {
+                Console.WriteLine("Input a menu item by number:");
+                int userChoice = int.Parse(Console.ReadLine());
+                int userCount = 0;
+                if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
+                {
+                    bool innerBreak = false;
+                    do
+                    {
+
+                        Console.WriteLine("How many would you like?");
+                        userCount = int.Parse(Console.ReadLine());
+                        if (Regex.IsMatch(userCount.ToString(), @"^([1-9]|1[0-2])$"))
+                        {
+
+                            innerBreak = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please Input a valid number:");
+                            userCount = int.Parse(Console.ReadLine());
+                        }
+
+                    } while (!innerBreak);
+
+                }
+                else
+                {
+                    Console.WriteLine("Please Input a valid number:");
+                    userChoice = int.Parse(Console.ReadLine());
+                }
+
+                receipt[userChoice - 1] += userCount;
+
+                Console.WriteLine("Would you like to order another item(Y/N)");
+                string yesOrNo = Console.ReadLine();
+                if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
+                {
+
+                }
+                else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
+                {
+                    whileBreak = true;
+                }
+
+            } while (!whileBreak);
+
+            return receipt;
+
+        }
 
         static void Main(string[] args)
         {
