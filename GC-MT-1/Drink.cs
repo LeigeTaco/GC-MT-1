@@ -22,10 +22,11 @@ namespace GC_MT_1
             DrinkType = "pop";
         }
         
-        //Drink(string dr):base(fn,fc,fd,fp)      //Same as Entree constructor
-        //{
-        //    DrinkType = dr;
-        //}
+        Drink(string fn, string fc, string fd, double fp, string dr):base(fn,fc,fd,fp)
+        {
+           DrinkType = dr;
+        }
+        
  
         //public override void //Method from Main()
         //{
