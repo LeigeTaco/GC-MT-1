@@ -22,10 +22,11 @@ namespace GC_MT_1
             DessertType = "churro";
         }
        
-        //Dessert(string ds):base(fn,fc,fd,fp)
+        //Dessert(string fn, string fc, string fd, double fp, string ds):base(fn,fc,fd,fp)
         //{
         //    DessertType = ds;
         //}
+      
         
         //public override void //Method from Main()
         //{
