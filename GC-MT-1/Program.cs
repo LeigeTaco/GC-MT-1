@@ -86,38 +86,8 @@ namespace GC_MT_1
             foreach (string[] prod in toProduct)
             {
 
-                //if (prod[1].ToLower() == "appetizer")
-                //{
-
-                //    output.Add(new Appetizer(prod));
-
-                //}
-                //else if (prod[1].ToLower() == "dessert")
-                //{
-
-                //    output.Add(new Dessert(prod));
-
-                //}
-                //else if (prod[1].ToLower() == "drink")
-                //{
-
-                //    output.Add(new Drink(prod));
-
-                //}
-                //else if (prod[1].ToLower() == "entree")
-                //{
-
-                //    output.Add(new Entree(prod));
-
-                //}
-                //else
-                //{
-
-                    //Console.WriteLine($"{prod[0]} Category Unclear, defaulting to Product");
-                    output.Add(new Product(prod));
-
-                //}
-
+                output.Add(new Product(prod));
+                
             }
 
             return output.ToArray();
@@ -178,7 +148,7 @@ namespace GC_MT_1
 
             }
 
-            do
+            do                              //TODO: Move validation to a seperate method.
             {
                 string temp = "";
                 Console.WriteLine("What would you like to order?:");
@@ -186,42 +156,35 @@ namespace GC_MT_1
                 int userCount = 0;
                 temp = Console.ReadLine();
                 bool innerBreak = false;
-
-                do
+                try
                 {
                     if (Regex.IsMatch(temp, @"[a-zA-Z\s]"))
                     {
 
-                        //do
-                        //{
+                        for (int i = 0; i < menu.Length; i++)
+                        {
 
-                            for (int i = 0; i < menu.Length; i++)
+                            if (temp.ToLower() == menu[i].FoodName.ToLower())
                             {
 
-                                if (temp.ToLower() == menu[i].FoodName.ToLower())
-                                {
-
-                                    userChoice = i + 1;
-
-                                }
-
-                            }
-                            if (userChoice > 0)
-                            {
-
-                                userCount = OrderQuantity();
-                                //innerBreak = true;
-
-                            }
-                            else
-                            {
-
-                                Console.WriteLine("Entry was not recognized.");
-                            temp = Console.ReadLine();
+                                userChoice = i + 1;
 
                             }
 
-                        //} while (!innerBreak);
+                        }
+                        if (userChoice > 0)
+                        {
+
+                            userCount = OrderQuantity();
+
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Entry was not recognized.");
+                            
+
+                        }
 
                     }
                     else if (Regex.IsMatch(temp, @"\d"))
@@ -240,7 +203,7 @@ namespace GC_MT_1
                             else
                             {
                                 Console.WriteLine("Entry was not recognized.");
-                                temp = Console.ReadLine();
+                                
                             }
 
 
@@ -248,7 +211,7 @@ namespace GC_MT_1
                         catch (Exception)
                         {
 
-                            
+
 
                         }
 
@@ -257,56 +220,28 @@ namespace GC_MT_1
                     {
 
                         Console.WriteLine("Entry was invalid, try again.");
-                        temp = Console.ReadLine();
+                        
 
                     }
 
-                    Console.WriteLine("Would you like to continue ordering?");
+                    receipt[userChoice - 1] += userCount;
 
-                } while (!innerBreak);
-                
-
-                #region outtahere
-                /*
-                try
-                {
-                    temp = Console.ReadLine();
-                    userChoice= int.Parse(temp);
-                    userCount = 0;
-                    if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
+                    Console.WriteLine("Would you like to order another item(Y/N)");
+                    string yesOrNo = Console.ReadLine();
+                    if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
                     {
 
-                        userCount = OrderQuantity();
-
                     }
-                    
-
+                    else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
+                    {
+                        whileBreak = true;
+                    }
                 }
-                catch (FormatException)
-                {
-                                        
-                }
-                catch(Exception e)
+                catch(Exception)
                 {
 
-                    Console.WriteLine($"Error: {e.Message}");
+                    Console.WriteLine("Lemme know if you didn't hit CTRL+Z to get here.");
 
-                }*/
-                #endregion
-                
-
-
-                receipt[userChoice - 1] += userCount;
-
-                Console.WriteLine("Would you like to order another item(Y/N)");
-                string yesOrNo = Console.ReadLine();
-                if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
-                {
-
-                }
-                else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
-                {
-                    whileBreak = true;
                 }
 
             } while (!whileBreak);
