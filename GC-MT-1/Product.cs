@@ -21,9 +21,9 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch(value, @"^.\D\S[a-z][A-Z]{1,100}$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
+                if (!Regex.IsMatch(value, @"^[a-zA-Z\s]+$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
                 {
-                    throw new Exception("Item not found. Please try again.");
+                    
                 }
                 else
                 {
@@ -39,13 +39,13 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch(value, @"^.\D\S[a-z][A-Z]{1,100}$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
+                if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
                 {
-                    throw new Exception("Item not found. Please try again.");
+                    
                 }
                 else
                 {
-                    foodCategory = value;
+                    foodCategory = value.Trim();
                 }
             }
             get { return foodCategory; }
@@ -56,9 +56,9 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch(value, @"^.\D\S[a-z][A-Z]{1,100}$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
+                if (!Regex.IsMatch(value, @"^[a-zA-Z\s]+$"))   //not digit, no whitespaces, lowerCase or upperCase,1-100char long
                 {
-                    throw new Exception("Item not found. Please try again.");
+                    
                 }
                 else
                 {
@@ -73,14 +73,7 @@ namespace GC_MT_1
         {
             set
             {
-                if (!Regex.IsMatch($"{value}", @"^$[0-9]([.,][0-9]{1,2})?$")) //only show numbers with two decimal places
-                {
-                    throw new Exception("Not valid.");
-                }
-                else
-                {
-                    foodPrice = value;
-                }
+                foodPrice = value;
             }
             get { return foodPrice; }
 
@@ -108,9 +101,9 @@ namespace GC_MT_1
         public Product(string[] arr)
         {
 
-            FoodCategory = arr[1];
-            FoodDescription = arr[2];
             FoodName = arr[0];
+            FoodCategory = arr[1];
+            FoodDescription = arr[2];            
 
             try
             {
@@ -128,12 +121,17 @@ namespace GC_MT_1
            
 
         }
+
+        public override string ToString()
+        {
+            return $"{FoodCategory} {FoodName} {FoodDescription} {FoodPrice}";
+        }
         //methods   
         //public virtual void //Method from Main()          //No method name given here. Looks like you're trying to override ToString().
         //{                                                 //
         //    ConsoleWriteLine("{Product}");                //cw($"{variableName}")
         //}                                                 //
-                                                            //Imma let you fix this, but ask questions about anything you aren't sure on.
+        //Imma let you fix this, but ask questions about anything you aren't sure on.
     }
    
 }

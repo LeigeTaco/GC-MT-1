@@ -33,7 +33,7 @@ namespace GC_MT_1
 
             foreach (string item in tempList)
             {
-                
+
                 string[] info = item.Split(',');
                 temp.Add(info);
 
@@ -78,7 +78,7 @@ namespace GC_MT_1
                 //else
                 //{
 
-                    Console.WriteLine("Product Category Unclear, defaulting to Product");
+                    Console.WriteLine($"{prod[0]} Category Unclear, defaulting to Product");
                     output.Add(new Product(prod));
 
                 //}
@@ -98,19 +98,7 @@ namespace GC_MT_1
 
             StreamReader menu = new StreamReader("../../Menu.txt");
             string RESTAURANTNAME = menu.ReadLine();
-
-            foreach (string[] word in ArrayBuilder1(menu))
-            {
-
-                foreach (string word2 in word)
-                {
-
-                    Console.Write(word2 + ' ');
-
-                }
-                Console.WriteLine();
-
-            }
+            Product[] MENU = ArrayBuilder2(ArrayBuilder1(menu));
 
             double price = 0;
             bool whileBreak = false;
@@ -118,10 +106,10 @@ namespace GC_MT_1
             do
             {
                 Console.WriteLine("Input a menu item by number:");
-                int userChoice =int.Parse(Console.ReadLine());
-                if(Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
+                int userChoice = int.Parse(Console.ReadLine());
+                if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
                 {
-                   
+
                 }
                 else
                 {
@@ -129,14 +117,14 @@ namespace GC_MT_1
                     userChoice = int.Parse(Console.ReadLine());
                 }
 
-                        
+
                 //something here to catalog the users choice and pull its price from the product list
                 //price = price + userChoice[index];
                 Console.WriteLine("Would you like to order another item(Y/N)");
                 string yesOrNo = Console.ReadLine();
                 if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
                 {
-             
+
                 }
                 else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
                 {
