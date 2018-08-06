@@ -123,8 +123,49 @@ namespace GC_MT_1
 
         }
 
+        public static int OrderQuantity()
+        {
+
+            int userCount = 0;
+
+            do
+            {
+
+                Console.WriteLine("How many would you like?");
+
+                try
+                {
+                    userCount = int.Parse(Console.ReadLine());
+                    if (Regex.IsMatch(userCount.ToString(), @"^([1-9]|1[0-2])$"))
+                    {
+                        return userCount;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please input a valid number:");
+                        userCount = int.Parse(Console.ReadLine());
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Error: {e.Message}");
+                }
+
+
+            } while (true);
+
+        }
+
         public static int[] OrderList(Product[] menu)
         {
+
+            Dictionary<string, int> guide = new Dictionary<string, int>();
+            for (int i = 0; i < menu.Length; i++)
+            {
+
+                guide.Add(menu[i].FoodName, i + 1);
+
+            }
 
             int[] receipt = new int[menu.Length];
 
@@ -146,36 +187,47 @@ namespace GC_MT_1
 
             do
             {
+                string temp = "";
                 Console.WriteLine("Input a menu item by number:");
-                int userChoice = int.Parse(Console.ReadLine());
+                int userChoice = 0;
                 int userCount = 0;
-                if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
+                try
                 {
-                    bool innerBreak = false;
-                    do
+                    temp = Console.ReadLine();
+                    userChoice= int.Parse(temp);
+                    userCount = 0;
+                    if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
                     {
 
-                        Console.WriteLine("How many would you like?");
-                        userCount = int.Parse(Console.ReadLine());
-                        if (Regex.IsMatch(userCount.ToString(), @"^([1-9]|1[0-2])$"))
-                        {
+                        userCount = OrderQuantity();
 
-                            innerBreak = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Please Input a valid number:");
-                            userCount = int.Parse(Console.ReadLine());
-                        }
-
-                    } while (!innerBreak);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please Input a valid number:");
+                        userChoice = int.Parse(Console.ReadLine());
+                    }
 
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.WriteLine("Please Input a valid number:");
-                    userChoice = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        userChoice = guide[temp];
+                        userCount = OrderQuantity();
+                    }
+                    catch (Exception f)
+                    {
+                        Console.WriteLine($"Error: {f.Message}");
+                    }
                 }
+                catch(Exception e)
+                {
+
+                    Console.WriteLine($"Error: {e.Message}");
+
+                }
+                
 
                 receipt[userChoice - 1] += userCount;
 
@@ -204,7 +256,11 @@ namespace GC_MT_1
             Product[] MENU = ArrayBuilder2(ArrayBuilder1(menu));
 
             double price = 0;
-
+            int[] receipt = OrderList(MENU);
+            for (int i = 0; i < MENU.Length; i++)
+            {
+                price += receipt[i] * MENU[i].FoodPrice;
+            }
 
             //process the order and get the totals here, subtotal, tax, total
 
@@ -212,7 +268,7 @@ namespace GC_MT_1
 
 
             //ask for a payment type and do appropriate actions to refrence the correct class
-            GetPayment();
+            PaymentMethod.Cash(price);
 
             //ask for a payment type and do appropriate actions to refrence the correct class
 
@@ -251,7 +307,7 @@ namespace GC_MT_1
 
 
 
-            PaymentMethod.Cash(price);
+            //PaymentMethod.Cash(price);
 
 
            //some sort of possible method here to do the receipt
