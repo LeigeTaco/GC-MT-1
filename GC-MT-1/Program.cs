@@ -160,14 +160,6 @@ namespace GC_MT_1
         public static int[] OrderList(Product[] menu)
         {
 
-            Dictionary<string, int> guide = new Dictionary<string, int>();
-            for (int i = 0; i < menu.Length; i++)
-            {
-
-                guide.Add(menu[i].FoodName, i + 1);
-
-            }
-
             int[] receipt = new int[menu.Length];
 
             for (int i = 0; i < menu.Length; i++)
@@ -189,9 +181,93 @@ namespace GC_MT_1
             do
             {
                 string temp = "";
-                Console.WriteLine("Input a menu item by number:");
+                Console.WriteLine("What would you like to order?:");
                 int userChoice = 0;
                 int userCount = 0;
+                temp = Console.ReadLine();
+                bool innerBreak = false;
+
+                do
+                {
+                    if (Regex.IsMatch(temp, @"[a-zA-Z\s]"))
+                    {
+
+                        //do
+                        //{
+
+                            for (int i = 0; i < menu.Length; i++)
+                            {
+
+                                if (temp.ToLower() == menu[i].FoodName.ToLower())
+                                {
+
+                                    userChoice = i + 1;
+
+                                }
+
+                            }
+                            if (userChoice > 0)
+                            {
+
+                                userCount = OrderQuantity();
+                                //innerBreak = true;
+
+                            }
+                            else
+                            {
+
+                                Console.WriteLine("Entry was not recognized.");
+                            temp = Console.ReadLine();
+
+                            }
+
+                        //} while (!innerBreak);
+
+                    }
+                    else if (Regex.IsMatch(temp, @"\d"))
+                    {
+
+                        try
+                        {
+
+                            userChoice = int.Parse(temp);
+                            if (userChoice <= menu.Length)
+                            {
+
+                                userCount = OrderQuantity();
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Entry was not recognized.");
+                                temp = Console.ReadLine();
+                            }
+
+
+                        }
+                        catch (Exception)
+                        {
+
+                            
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("Entry was invalid, try again.");
+                        temp = Console.ReadLine();
+
+                    }
+
+                    Console.WriteLine("Would you like to continue ordering?");
+
+                } while (!innerBreak);
+                
+
+                #region outtahere
+                /*
                 try
                 {
                     temp = Console.ReadLine();
@@ -203,32 +279,22 @@ namespace GC_MT_1
                         userCount = OrderQuantity();
 
                     }
-                    else
-                    {
-                        Console.WriteLine("Please Input a valid number:");
-                        userChoice = int.Parse(Console.ReadLine());
-                    }
+                    
 
                 }
                 catch (FormatException)
                 {
-                    try
-                    {
-                        userChoice = guide[temp];
-                        userCount = OrderQuantity();
-                    }
-                    catch (Exception f)
-                    {
-                        Console.WriteLine($"Error: {f.Message}");
-                    }
+                                        
                 }
                 catch(Exception e)
                 {
 
                     Console.WriteLine($"Error: {e.Message}");
 
-                }
+                }*/
+                #endregion
                 
+
 
                 receipt[userChoice - 1] += userCount;
 
