@@ -11,6 +11,40 @@ namespace GC_MT_1
 
     class Program
     {
+        static void GetPayment()
+        {
+            Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
+            string payChoice = Console.ReadLine();
+           bool  whileBreak = false;
+            do
+            {
+                if (Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
+                {
+                    whileBreak = true;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter one of the valid payment types:");
+                    payChoice = Console.ReadLine();
+                }
+
+            } while (!whileBreak);
+
+            double total = 100;// this is just for test purposes and can be commented out when we store a total.
+
+            if (payChoice.ToLower() == "cash")
+            {
+                PaymentMethod.Cash(total);
+            }
+            else if (payChoice.ToLower() == "credit")
+            {
+                PaymentMethod.Credit();
+            }
+            else if (payChoice.ToLower() == "Check")
+            {
+                PaymentMethod.Check();
+            }
+        }
 
         static string[][] ArrayBuilder1(StreamReader menu)
         {
@@ -106,6 +140,10 @@ namespace GC_MT_1
             do
             {
                 Console.WriteLine("Input a menu item by number:");
+               
+                
+
+                
                 int userChoice = int.Parse(Console.ReadLine());
                 if (Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
                 {
@@ -136,38 +174,40 @@ namespace GC_MT_1
             //process the order and get the totals here, subtotal, tax, total
 
 
+
             //ask for a payment type and do appropriate actions to refrence the correct class
-            Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
-            string payChoice = Console.ReadLine();
-            whileBreak = false;
-            do
-            {
-                if(Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
-                {
-                    whileBreak = true;
-                }
-                else
-                {
-                    Console.WriteLine("Please enter one of the valid payment types:");
-                    payChoice = Console.ReadLine();
-                }
+            GetPayment();
+            //Console.WriteLine("Please enter your payment type(Cash, Check, or Credit):");
+            //string payChoice = Console.ReadLine();
+            //whileBreak = false;
+            //do
+            //{
+            //    if(Regex.IsMatch(payChoice.ToLower(), @"^cash|check|credit$"))
+            //    {
+            //        whileBreak = true;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Please enter one of the valid payment types:");
+            //        payChoice = Console.ReadLine();
+            //    }
 
-            } while (!whileBreak);
+            //} while (!whileBreak);
 
-            double total = 100;// this is just for test purposes and can be commented out when we store a total.
+            //double total = 100;// this is just for test purposes and can be commented out when we store a total.
 
-            if (payChoice.ToLower() == "cash")
-            {
-                PaymentMethod.Cash(total);
-            }
-            else if (payChoice.ToLower() == "credit")
-            {
-                PaymentMethod.Credit();
-            }
-            else if (payChoice.ToLower() == "Check")
-            {
-                PaymentMethod.Check();
-            }
+            //if (payChoice.ToLower() == "cash")
+            //{
+            //    PaymentMethod.Cash(total);
+            //}
+            //else if (payChoice.ToLower() == "credit")
+            //{
+            //    PaymentMethod.Credit();
+            //}
+            //else if (payChoice.ToLower() == "Check")
+            //{
+            //    PaymentMethod.Check();
+            //}
 
 
 
