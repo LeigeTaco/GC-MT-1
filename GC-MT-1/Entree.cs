@@ -17,15 +17,15 @@ namespace GC_MT_1
             get{return entreeType;}     //return statements don't equal anything. whatever comes after them 
        }
        
-       Entree():base()                  //Have to make this extend the base constructor
+       Entree():base()                
        {
             EntreeType = "burrito";
        }
 
-       //Entree(string en):base(fn,fc,fd,fp)      //This needs to be fed the parametes for the base constructor, right now you're only feeding it string en.
-       //{
-       //     EntreeType = en;
-       //}
+       Entree(string fn, string fc, string fd, double fp, string en):base(fn,fc,fd,fp)     
+       {     
+            EntreeType = en;
+       }
 
        //public override void //method from main()
 
