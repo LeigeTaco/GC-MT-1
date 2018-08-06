@@ -112,6 +112,38 @@ namespace GC_MT_1
 
             }
 
+            double price = 0;
+            bool whileBreak = false;
+            do
+            {
+                Console.WriteLine("Input a menu item by number:");
+                int userChoice =int.Parse(Console.ReadLine());
+                if(Regex.IsMatch(userChoice.ToString(), @"^([1-9]|1[0-2])$"))
+                {
+                   
+                }
+                else
+                {
+                    Console.WriteLine("Please Input a valid number:");
+                    userChoice = int.Parse(Console.ReadLine());
+                }
+
+                        
+                //something here to catalog the users choice and pull its price from the product list
+                //price = price + userChoice[index];
+                Console.WriteLine("Would you like to order another item(Y/N)");
+                string yesOrNo = Console.ReadLine();
+                if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
+                {
+             
+                }
+                else if (Regex.IsMatch(yesOrNo, @"^N|n|no|No$"))
+                {
+                    whileBreak = true;
+                }
+
+            } while (!whileBreak);
+
         }
 
     }
