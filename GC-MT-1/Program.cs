@@ -351,7 +351,8 @@ namespace GC_MT_1
             }
 
             PrintReceipt(receipt, MENU);
-            PaymentMethod.Cash(price * 1.06);
+            // PaymentMethod.Cash(price * 1.06);
+            GetPayment(price * 1.06);
             
         }
 
