@@ -11,7 +11,7 @@ namespace GC_MT_1
     {
         private string drinkType;
         
-        public string DrinkType         //missing data type
+        public string DrinkType      
         {
             set {drinkType = value;}
             get {return drinkType;}
