@@ -41,7 +41,7 @@ namespace GC_MT_1
             {
                 PaymentMethod.Credit();
             }
-            else if (payChoice.ToLower() == "Check")
+            else if (payChoice.ToLower() == "check")
             {
                 PaymentMethod.Check();
             }
