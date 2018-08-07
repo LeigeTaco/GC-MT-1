@@ -12,26 +12,7 @@ namespace GC_MT_1
 
     class Program
     {
-        private static SecureString maskInput()
-        {
-            Console.WriteLine("Enter your credit card number:");
-            SecureString credCard = new SecureString();
-            ConsoleKeyInfo keyInfo;
-
-            do
-            {
-                keyInfo = Console.ReadKey(true);
-                if (!char.IsControl(keyInfo.KeyChar))
-                {
-                    credCard.AppendChar(keyInfo.KeyChar);
-                    Console.Write("*");
-                }
-            }
-            while (keyInfo.Key != ConsoleKey.Enter);
-            {
-                return credCard;
-            }
-        }
+        
         static void GetPayment(double total)
         {
             //asks for payment typs 
