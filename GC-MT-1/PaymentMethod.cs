@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Security;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -9,7 +10,8 @@ namespace GC_MT_1
 {
 
     class PaymentMethod
-    {   //taking and Validating cash payments
+    {
+        //taking and Validating cash payments
         public static void Cash(double price)
         {
             double payment = 0;
@@ -58,6 +60,22 @@ namespace GC_MT_1
         public static void Credit()
         {
             Console.WriteLine("Input your credit card number:");
+            string credCard = null;
+            while (true)
+            {
+                var key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+                
+                credCard += key.KeyChar;
+                Console.Write("*");
+            }
+            Console.WriteLine();
+
+
+            //Console.WriteLine("Input your credit card number:");
             string cvv = "";
             int  cvvLength = 0;
 
@@ -68,8 +86,9 @@ namespace GC_MT_1
             {
                 try
                 {
-                    string cardNum = Console.ReadLine();
-                    if (Regex.IsMatch(cardNum, @"^4[0-9]{12}(?:[0-9]{3})?$"))
+                    
+                    credCard = credCard.Trim(' ');
+                    if (Regex.IsMatch(credCard, @"^4[0-9]{12}(?:[0-9]{3})?$"))
                     {
 
                         Console.WriteLine("You have entered a Visa Card");
@@ -77,7 +96,7 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
-                    else if (Regex.IsMatch(cardNum, @"^3[47][0-9]{13}$"))
+                    else if (Regex.IsMatch(credCard, @"^3[47][0-9]{13}$"))
                     {
 
                         Console.WriteLine("You have entered an American Express");
@@ -85,7 +104,7 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
-                    else if (Regex.IsMatch(cardNum, @"^3(?:0[0-5]|[68][0-9])[0-9]{11}$"))
+                    else if (Regex.IsMatch(credCard, @"^3(?:0[0-5]|[68][0-9])[0-9]{11}$"))
                     {
 
                         Console.WriteLine("You have entered a Diners Club Card");
@@ -93,7 +112,7 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
-                    else if (Regex.IsMatch(cardNum, @"^6(?:011|5[0-9]{2})[0-9]{12}$"))
+                    else if (Regex.IsMatch(credCard, @"^6(?:011|5[0-9]{2})[0-9]{12}$"))
                     {
 
                         Console.WriteLine("You have entered a Discover Card");
@@ -101,7 +120,7 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
-                    else if (Regex.IsMatch(cardNum, @"^(?:2131|1800|35\d{3})\d{11}$"))
+                    else if (Regex.IsMatch(credCard, @"^(?:2131|1800|35\d{3})\d{11}$"))
                     {
 
                         Console.WriteLine("You have entered a JBC card");
@@ -109,7 +128,7 @@ namespace GC_MT_1
                         whileBreak = true;
 
                     }
-                    else if (Regex.IsMatch(cardNum, @"^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$"))
+                    else if (Regex.IsMatch(credCard, @"^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$"))
                     {
                         Console.WriteLine("You have entered a MasterCard");
                         cvvLength = 3;
@@ -127,14 +146,25 @@ namespace GC_MT_1
             while (!whileBreak);
 
             whileBreak = false;
-            Console.WriteLine("Please enter your CVV:");
+            //Console.WriteLine("Please enter your CVV:");
+            Console.WriteLine("Input your CVV number:");
+            string cvvNum = null;
+            while (true)
+            {
+                var key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter)
+                    break;
+                cvvNum += key.KeyChar;
+                Console.Write("*");
+            }
+            Console.WriteLine();
             do
             {
 
 
                 try
                 {
-                    string cvvNum = Console.ReadLine();
+                   // string cvvNum = Console.ReadLine();
                     if (cvvNum.Length != cvvLength)
                     {
                         Console.WriteLine("Please re-enter your CVV:");
@@ -199,7 +229,7 @@ namespace GC_MT_1
 
             } while (!whileBreak);
 
-
+            Console.WriteLine("Thank you for your payment, Have a nice day!!!");
 
 
 
