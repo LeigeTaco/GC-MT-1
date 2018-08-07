@@ -143,12 +143,12 @@ namespace GC_MT_1
             foreach (Product f in menu)
             {
 
-                Console.WriteLine($"{menuNum} {f.ToString()}");
+                Console.WriteLine($"{menuNum, -2} {f.ToString()}");
                 menuNum++;
 
             }
 
-            do                              
+            do
             {                               
                 string temp = "";           
                 Console.WriteLine("What would you like to order?:");

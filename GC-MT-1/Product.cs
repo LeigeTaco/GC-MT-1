@@ -124,7 +124,7 @@ namespace GC_MT_1
 
         public override string ToString()
         {
-            return $"{FoodCategory} {FoodName} {FoodDescription} {FoodPrice}";
+            return $"{FoodCategory, -9} {FoodName, -22} {FoodDescription, -47} {FoodPrice:c}";
         }
         //methods   
         //public virtual void //Method from Main()          //No method name given here. Looks like you're trying to override ToString().
