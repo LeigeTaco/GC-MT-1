@@ -8,7 +8,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 
 namespace GC_MT_1
-{
+{//give back info on purchased items
+ // for certain inputs
 
     class Program
     {
@@ -48,7 +49,7 @@ namespace GC_MT_1
                 PaymentMethod.Check();
             }
         }
-
+        
         static string[][] ArrayBuilder1(StreamReader menu)
         {
 
@@ -227,7 +228,7 @@ namespace GC_MT_1
                     }
 
                     receipt[userChoice - 1] += userCount;
-
+                    PrintReceipt(receipt,menu);
                     Console.WriteLine("Would you like to order another item(Y/N)");
                     string yesOrNo = Console.ReadLine();
                     if (Regex.IsMatch(yesOrNo, @"^Y|y|yes|Yes$"))
