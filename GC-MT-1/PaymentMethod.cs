@@ -53,7 +53,7 @@ namespace GC_MT_1
 
 
             } while (true);
-
+           
 
         }
         //taking and validating credit payments
@@ -81,7 +81,7 @@ namespace GC_MT_1
                     Console.Write("*");
                 }
             }
-                Console.WriteLine(credCard);
+                Console.WriteLine();
             
 
                 //Console.WriteLine("Input your credit card number:");
@@ -251,8 +251,8 @@ namespace GC_MT_1
                     }
 
                 } while (!whileBreak);
-
-                Console.WriteLine("Thank you for your payment, Have a nice day!!!");
+            
+            Console.WriteLine("Thank you for your payment, Have a nice day!!!");
 
 
 
